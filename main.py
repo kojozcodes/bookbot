@@ -1,6 +1,11 @@
+import sys
 from stats import get_word_count, get_character_count, dict_to_list
 
-book_filepath = "books/frankenstein.txt"
+if len(sys.argv) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+book_filepath = sys.argv[1]
 
 
 def get_book_text(filepath):
@@ -23,5 +28,6 @@ def main():
     for letter in sorted_charaters:
         if letter["char"].isalpha():
             print(f"{letter["char"]}: {letter["num"]}")
+
 
 main()
